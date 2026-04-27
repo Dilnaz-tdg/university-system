@@ -37,7 +37,7 @@ public class DataStorage implements Serializable {
         marks = new ArrayList<>();
     }
 
-    public static DataStorage getInstance() {
+    public static DataStorage getInstance() { //единственный объект DataStorage
         if (instance == null) {
             instance = new DataStorage();
         }
@@ -45,37 +45,11 @@ public class DataStorage implements Serializable {
     }
 
     public void save() {
-        File dir = new File("data");
-        if (!dir.exists()) dir.mkdirs();
-
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(SAVE_FILE))) {
-            out.writeObject(this);
-            System.out.println("Data saved successfully.");
-        } catch (IOException e) {
-            System.out.println("Error saving data: " + e.getMessage());
-        }
+      
     }
 
     public void load() {
-        File file = new File(SAVE_FILE);
-        if (!file.exists()) {
-            System.out.println("No saved data found. Starting fresh.");
-            return;
-        }
-
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(SAVE_FILE))) {
-            DataStorage loaded = (DataStorage) in.readObject();
-            this.users = loaded.users;
-            this.courses = loaded.courses;
-            this.news = loaded.news;
-            this.journals = loaded.journals;
-            this.requests = loaded.requests;
-            this.enrollments = loaded.enrollments;
-            this.marks = loaded.marks;
-            System.out.println("Data loaded successfully.");
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error loading data: " + e.getMessage());
-        }
+        
     }
 
     public List<Request> getRequests()          { return requests; }
