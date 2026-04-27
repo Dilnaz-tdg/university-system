@@ -46,7 +46,7 @@ public class Request {
         return urgencyLevel;
     }
 
-    // Метод нужен, чтобы техподдержка или система могли менять этап обработки заявки.
+    // Метод нужен для изменения этапа обработки заявки.
     public void updateStatus(RequestStatus status) {
         this.status = status;
     }
