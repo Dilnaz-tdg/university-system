@@ -28,7 +28,7 @@ public class Student extends User{
 		
 	}
 	
-	public Enrollment registerCourse(Course course) {
+	public void registerCourse(Course course) {
 		if (totalCredit + course.getCredits() > 21) {
 	        throw new MaxCreditsException(
 	            "Cannot register. Max 21 credits exceeded."
@@ -36,7 +36,7 @@ public class Student extends User{
 	    }
 
 		for (Enrollment e : enrollments) {
-	            if (e.getCourse().equals(course)) return e ;
+	            if (e.getCourse().equals(course)) return ;
 	    }
 		 
 		Enrollment enrollment = new Enrollment(this, course);
@@ -44,7 +44,6 @@ public class Student extends User{
 		DataStorage.getInstance().addEnrollment(enrollment);
 		
 		totalCredit += course.getCredits();
-		return enrollment;
 	}
 	
 	public void viewMarks() {
