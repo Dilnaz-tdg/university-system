@@ -38,6 +38,9 @@ public class ResearchPaper implements Comparable<ResearchPaper> {
 
     public int getCitation(){ return citations; }
 
+    public int getCitations(){ return citations; }
+    
+
     public LocalDate getPublishedDate(){ return publishedDate; }
 
     public void setCitations(int citations){ this.citations = citations; }
