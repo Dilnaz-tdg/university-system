@@ -36,7 +36,7 @@ public class ResearchPaper implements Comparable<ResearchPaper> {
 
     public String getDoi(){ return doi; }
 
-    public int getCitations(){ return citations; }
+    public int getCitation(){ return citations; }
 
     public LocalDate getPublishedDate(){ return publishedDate; }
 

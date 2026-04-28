@@ -3,6 +3,8 @@ package model.research;
 import java.util.ArrayList;
 import java.util.List;
 
+import exceptions.NotResearcherException;
+
 public class ResearchProject {
 	
     private String topic;
@@ -30,6 +32,18 @@ public class ResearchProject {
             participants.add(researcher);
             researcher.addProject(this);
         }
+    }
+
+    public void addParticipant(Object user) throws NotResearcherException {
+
+        if (!(user instanceof Researcher)) {
+    
+            throw new NotResearcherException("Only researchers can join research project");
+    
+        }
+    
+        addParticipant((Researcher) user);
+    
     }
 
 
