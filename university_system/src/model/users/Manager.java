@@ -52,6 +52,6 @@ public class Manager extends Employee {
 
 	@Override
 	public String getRole() {
-		return "Manager";
+		return "Manager "  + managerType.toString();
 	}
 }

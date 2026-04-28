@@ -44,9 +44,16 @@ public class Teacher extends Employee {
 		return null;
 	}
 	
-	public boolean equals(Object obj) {return false;}
+	public boolean equals(Object obj) {
+		 if (!(obj instanceof Teacher)) return false;
+		    Teacher t = (Teacher) obj;
+		    return Objects.equals(getLogin(), t.getLogin());
+	}
 	
-	public int hashCode() {return 0;}
+	public int hashCode() {
+		return Objects.hash(getLogin());
+	}
+	
 	
 	public String toString() {
 		return "";
@@ -58,7 +65,7 @@ public class Teacher extends Employee {
 
 	@Override
 	public String getRole() {
-		return "Teacher " + positionTitle; 
+		return "Teacher " + positionTitle.toString(); 
 	}
 
 	
