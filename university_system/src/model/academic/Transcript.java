@@ -16,7 +16,7 @@ public class Transcript {
 	
 	public void generate(List<Enrollment> enrollments) {}
 	
-	 private double convert(String g) {
+	 private double convert(String g) {//will be used in generate
 	        switch (g) {
 	            case "A": return 4.0;
 	            case "A-": return 3.7;
