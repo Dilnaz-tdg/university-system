@@ -8,6 +8,7 @@ import model.academic.Course;
 import model.academic.Enrollment;
 import model.academic.Mark;
 import model.academic.Report;
+import patterns.DataStorage;
 
 public class Teacher extends Employee {
 	private List<Course> courses =  new ArrayList<>();
@@ -38,7 +39,16 @@ public class Teacher extends Employee {
 		return course.getStudents() ;
 	}
 	
-	public void putMarks(Student student, Course course, Mark mark) {}
+	public void putMarks(Student student, Course course, Mark mark) {
+	    for (Enrollment e : course.getEnrollments()) {
+	        if (e.getStudent().equals(student)) {
+	            mark = new Mark(e);
+	            
+	            DataStorage.getInstance().addMark(mark);
+	            return;
+	        }
+	    }
+	}
 	
 	public Report generateReport(Course course) {
 		return null;
@@ -54,12 +64,12 @@ public class Teacher extends Employee {
 		return Objects.hash(getLogin());
 	}
 	
-	
+	@Override
 	public String toString() {
-		return "";
+		return "Teacher: " + getFirstName() + " " + getLastName();
 	}
 
-	public void addRating(int rating) {
+	public void recieveRating(int rating) {
 		this.rating = (this.rating + rating) / 2.0;
 	}
 

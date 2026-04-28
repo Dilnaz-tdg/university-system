@@ -27,8 +27,9 @@ public class Enrollment {
         return course;
     }
 	
-	public void approve() {
+	public void approve(Manager manager) {
 		status = EnrollmentStatus.APPROVED;
+		approvedBy = manager;
 	}
 	
 	public boolean isApproved() {
@@ -41,10 +42,10 @@ public class Enrollment {
 	
 	@Override
 	public String toString() {
-		 return "\nEnrollment:" +
+		 return "Enrollment:" +
 			       "\nStudent: " + student +
 			       "\nCourse: " + course +
 			       "\nStatus: " + status +
-			       "\nDate: " + registrationDate + "\n";
+			       "\nDate: " + registrationDate;
 	}
 }
