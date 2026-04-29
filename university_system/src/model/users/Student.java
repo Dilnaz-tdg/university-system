@@ -51,14 +51,7 @@ public class Student extends User{
 	}
 	
 	public List<Course> viewCourses() {
-	    List<Course> courses = new ArrayList<>();
-
-	    for (Enrollment e : enrollments) {
-	        if (e.isApproved()) {
-	            courses.add(e.getCourse());
-	        }
-	    }
-	    return courses;
+	    return DataStorage.getInstance().getCourses();
 	}
 	
 	public Transcript getTranscript() {
