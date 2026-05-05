@@ -1,6 +1,6 @@
-package patterns;
+package notification;
 
-import model.users.User;
+import core.User;
 
 public interface Subject {
     void subscribe(User user);

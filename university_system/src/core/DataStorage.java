@@ -1,12 +1,11 @@
-package patterns;
+package core;
 
-import model.users.User;
 import model.academic.Course;
 import model.academic.Enrollment;
 import model.academic.Mark;
 import model.communication.News;
-import model.communication.Journal;
 import model.communication.Request;
+import notification.Journal;
 
 import java.io.*;
 import java.util.ArrayList;

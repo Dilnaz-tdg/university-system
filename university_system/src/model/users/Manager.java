@@ -3,11 +3,12 @@ package model.users;
 import java.time.LocalDate;
 import java.util.*;
 
-import enums.ManagerType;
+import core.DataStorage;
+import core.Employee;
+import core.User;
 import model.academic.Course;
 import model.academic.Enrollment;
 import model.academic.Report;
-import patterns.DataStorage;
 
 public class Manager extends Employee {
 	private ManagerType managerType;

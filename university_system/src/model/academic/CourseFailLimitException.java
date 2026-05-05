@@ -1,4 +1,4 @@
-package exceptions;
+package model.academic;
 
 public class CourseFailLimitException extends RuntimeException {
 

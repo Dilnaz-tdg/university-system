@@ -1,9 +1,8 @@
 package model.communication;
 
-import enums.RequestStatus;
-import enums.UrgencyLevel;
 import java.time.LocalDate;
-import model.users.Employee;
+
+import core.Employee;
 
 public class Request {
     private String id;

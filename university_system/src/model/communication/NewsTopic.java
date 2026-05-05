@@ -1,4 +1,4 @@
-package enums;
+package model.communication;
 
 public enum NewsTopic {
     RESEARCH,

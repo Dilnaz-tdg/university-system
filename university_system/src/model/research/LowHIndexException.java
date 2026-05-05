@@ -1,4 +1,4 @@
-package exceptions;
+package model.research;
 
 public class LowHIndexException extends Exception{
 

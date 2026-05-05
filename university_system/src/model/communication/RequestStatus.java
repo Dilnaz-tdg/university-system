@@ -1,4 +1,4 @@
-package enums;
+package model.communication;
 
 public enum RequestStatus {
     // Статусы используются только для заявок сотрудников.

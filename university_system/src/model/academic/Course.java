@@ -2,7 +2,6 @@ package model.academic;
 
 import java.util.*;
 
-import enums.CourseType;
 import model.users.Student;
 import model.users.Teacher;
 

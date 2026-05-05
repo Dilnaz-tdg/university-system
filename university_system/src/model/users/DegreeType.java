@@ -1,4 +1,4 @@
-package enums;
+package model.users;
 
 public enum DegreeType {
     BACHELOR,

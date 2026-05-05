@@ -1,14 +1,11 @@
 package model.users;
 
-import model.research.ResearchPaper;
-import model.research.ResearchProject;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import enums.TeacherPosition;
+import model.research.Researcher;
 
 public class ResearchTeacher extends Teacher implements Researcher {
 

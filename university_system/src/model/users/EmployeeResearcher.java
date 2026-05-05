@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import model.research.ResearchPaper;
-import model.research.ResearchProject;
+
+import core.Employee;
 import model.research.Researcher;
 public class EmployeeResearcher extends Employee implements Researcher {
 

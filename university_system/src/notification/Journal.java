@@ -1,10 +1,10 @@
-package model.communication;
+package notification;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import core.User;
 import model.research.ResearchPaper;
-import model.users.User;
-import patterns.Subject;
 
 public class Journal implements Subject {
     private String name;

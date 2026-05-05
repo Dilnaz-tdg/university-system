@@ -1,8 +1,6 @@
-package patterns;
+package core;
 
 import model.users.*;
-import enums.TeacherPosition;
-import enums.ManagerType;
 
 import java.time.LocalDate;
 import java.util.Map;

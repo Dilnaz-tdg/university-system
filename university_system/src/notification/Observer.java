@@ -1,4 +1,4 @@
-package patterns;
+package notification;
 
 public interface Observer {
     // Получает текстовое уведомление от наблюдаемого объекта.

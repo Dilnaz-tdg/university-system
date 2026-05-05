@@ -1,6 +1,4 @@
-package model.users;
-
-import patterns.DataStorage;
+package core;
 
 import java.io.*; //чтение логов, запись логов, создание папки logs
 import java.time.LocalDate;

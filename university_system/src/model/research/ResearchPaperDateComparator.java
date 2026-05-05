@@ -1,7 +1,6 @@
-package comparators;
+package model.research;
 
 import java.util.Comparator;
-import model.research.ResearchPaper;
 
 public class ResearchPaperDateComparator implements Comparator<ResearchPaper> {
 

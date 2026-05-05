@@ -1,9 +1,9 @@
-package model.users;
+package core;
 
 import model.communication.Message;
 import model.communication.Request;
-import enums.RequestStatus;
-import enums.UrgencyLevel;
+import model.communication.RequestStatus;
+import model.communication.UrgencyLevel;
 
 import java.time.LocalDate;
 

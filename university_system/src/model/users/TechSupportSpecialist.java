@@ -1,9 +1,11 @@
 package model.users;
 
-import enums.RequestStatus;
 import java.util.ArrayList;
 import java.util.List;
+
+import core.Employee;
 import model.communication.Request;
+import model.communication.RequestStatus;
 
 public class TechSupportSpecialist extends Employee {
     private List<Request> assignedRequests;

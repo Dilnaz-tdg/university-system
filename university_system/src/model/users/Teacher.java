@@ -3,12 +3,12 @@ package model.users;
 import java.time.LocalDate;
 import java.util.*;
 
-import enums.TeacherPosition;
+import core.DataStorage;
+import core.Employee;
 import model.academic.Course;
 import model.academic.Enrollment;
 import model.academic.Mark;
 import model.academic.Report;
-import patterns.DataStorage;
 
 public class Teacher extends Employee {
 	private List<Course> courses =  new ArrayList<>();

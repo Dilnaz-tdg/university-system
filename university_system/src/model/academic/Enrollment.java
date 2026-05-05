@@ -2,7 +2,6 @@ package model.academic;
 
 import java.time.LocalDate;
 
-import enums.EnrollmentStatus;
 import model.users.Manager;
 import model.users.Student;
 

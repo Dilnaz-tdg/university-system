@@ -1,6 +1,5 @@
 package model.communication;
 
-import enums.NewsTopic;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

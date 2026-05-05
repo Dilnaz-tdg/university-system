@@ -1,7 +1,8 @@
 package model.communication;
 
 import java.time.LocalDateTime;
-import model.users.Employee;
+
+import core.Employee;
 
 public class Message {
     private Employee sender;

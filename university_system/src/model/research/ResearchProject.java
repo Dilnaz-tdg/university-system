@@ -3,8 +3,6 @@ package model.research;
 import java.util.ArrayList;
 import java.util.List;
 
-import exceptions.NotResearcherException;
-
 public class ResearchProject {
 	
     private String topic;

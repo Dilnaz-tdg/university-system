@@ -2,13 +2,14 @@ package model.users;
 
 import java.util.*;
 
-import exceptions.CourseFailLimitException;
-import exceptions.MaxCreditsException;
+import core.DataStorage;
+import core.User;
 import model.academic.Course;
+import model.academic.CourseFailLimitException;
 import model.academic.Enrollment;
+import model.academic.MaxCreditsException;
 import model.academic.Transcript;
 import model.research.Researcher;
-import patterns.DataStorage;
 
 public class Student extends User{
 	private double gpa;

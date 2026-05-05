@@ -2,7 +2,6 @@ package model.academic;
 
 import java.time.LocalDateTime;
 
-import enums.LessonType;
 import model.users.Teacher;
 
 public class Lesson {

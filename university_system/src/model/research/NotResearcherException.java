@@ -1,4 +1,4 @@
-package exceptions;
+package model.research;
 
 public class NotResearcherException extends Exception {
 
