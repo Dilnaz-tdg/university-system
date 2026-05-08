@@ -12,12 +12,10 @@ import model.academic.Transcript;
 import model.research.Researcher;
 
 public class Student extends User{
-	private double gpa;
 	private String major;
 	private int yearOfStudy;
 	private int totalCredit;
 	
-	private List<Enrollment> enrollments = new ArrayList<>();
 	private Transcript transcript = new Transcript(this);
 	private Map<Course, Integer> failCount = new HashMap<>();
 	private Researcher researchSupervisor;
@@ -26,25 +24,22 @@ public class Student extends User{
 		super(firstName,lastName, login, password );
 		this.major = major;
 		this.yearOfStudy = yearOfStudy;
-		
 	}
 	
-	public void registerCourse(Course course) {
-		if (totalCredit + course.getCredits() > 21) {
-	        throw new MaxCreditsException(
-	            "Cannot register. Max 21 credits exceeded."
-	        );
+	public Enrollment registerCourse(Course course) {
+	    if (totalCredit + course.getCredits() > 21) {
+	        throw new MaxCreditsException("Max 21 credits exceeded");
 	    }
 
-		for (Enrollment e : enrollments) {
-	            if (e.getCourse().equals(course)) return ;
+	    for (Enrollment e : getEnrollments()) {
+	        if (e.getCourse().equals(course)) return null;
 	    }
-		 
-		Enrollment enrollment = new Enrollment(this, course);
-		enrollments.add(enrollment);
-		DataStorage.getInstance().addEnrollment(enrollment);
-		
-		totalCredit += course.getCredits();
+
+	    Enrollment e = new Enrollment(this, course);
+	    DataStorage.getInstance().addEnrollment(e);
+
+	    totalCredit += course.getCredits();
+	    return e;
 	}
 	
 	public void viewMarks() {
@@ -61,12 +56,19 @@ public class Student extends User{
 	
 	public void rateTeacher(Teacher teacher, int rating) {
 		if (teacher != null) {
-            teacher.recieveRating(rating);
+            teacher.receveRating(rating);
         }
 	}
 	
 	public List<Enrollment> getEnrollments() {
-		return enrollments;
+	    List<Enrollment> result = new ArrayList<>();
+
+	    for (Enrollment e : DataStorage.getInstance().getEnrollments()) {
+	        if (e.getStudent().equals(this)) {
+	            result.add(e);
+	        }
+	    }
+	    return result;
 	}
 	
 	public void setResearchSupervisor(Researcher supervisor) {
@@ -106,3 +108,4 @@ public class Student extends User{
 		return "Student";
 	}
 }
+

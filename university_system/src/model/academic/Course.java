@@ -2,6 +2,7 @@ package model.academic;
 
 import java.util.*;
 
+import core.DataStorage;
 import model.users.Student;
 import model.users.Teacher;
 
@@ -12,8 +13,7 @@ public class Course {
 	private CourseType type;
 	
 	private List<Teacher> lectureTeachers = new ArrayList<>();;
-	private List<Teacher> practiceTeachers = new ArrayList<>();;
-	private List<Enrollment> enrollments = new ArrayList<>();;
+	private List<Teacher> practiceTeachers = new ArrayList<>();
 	
 	public Course(String courseId, String name, int credits, CourseType type) {
 		 this.courseId = courseId;
@@ -30,22 +30,25 @@ public class Course {
 		practiceTeachers.add(teacher);
 	}
 	
-	public void addEnrollment(Enrollment e) {
-	    enrollments.add(e);
-	}
-	
 	public int getCredits() {
 		return credits;
 	}
 	
 	public List<Enrollment> getEnrollments() {
-		return enrollments;
+	    List<Enrollment> result = new ArrayList<>();
+
+	    for (Enrollment e : DataStorage.getInstance().getEnrollments()) {
+	        if (e.getCourse().equals(this)) {
+	            result.add(e);
+	        }
+	    }
+	    return result;
 	}
 	
 	public List<Student> getStudents(){
 		List<Student> students = new ArrayList<>();
 		
-	    for (Enrollment e : enrollments) {
+	    for (Enrollment e : getEnrollments()) {
 	    	if (e.isApproved()) {
                 students.add(e.getStudent());
             }
@@ -71,4 +74,11 @@ public class Course {
 	public int hashCode() {
 		return Objects.hash(courseId);
 	}
+
+	public String getCourseId() {return courseId;}
+
+	public String getName() {
+		return name;
+	}
 }
+
