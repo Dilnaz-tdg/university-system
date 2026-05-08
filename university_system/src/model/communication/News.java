@@ -3,8 +3,12 @@ package model.communication;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 import model.users.Manager;
 
+
+//  Класс News описывает новость внутри университетской системы.
+//  Новость хранит заголовок, текст, тему, автора, дату публикации и комментарии.
 public class News {
     private String title;
     private String content;
@@ -13,6 +17,9 @@ public class News {
     private LocalDateTime date;
     private List<String> comments;
     private boolean isPinned;
+
+
+//     Создаёт новость с базовыми данными.
 
     public News(String title, String content, NewsTopic topic, Manager author) {
         this.title = title;
@@ -52,18 +59,21 @@ public class News {
         return isPinned;
     }
 
-    // Добавляем текстовый комментарий к новости.
+
+//      Добавляет комментарий к новости.
+
     public void addComment(String comment) {
         if (comment != null && !comment.isBlank()) {
             comments.add(comment);
         }
     }
 
-    // Закрепляем новость, чтобы она отображалась выше остальных.
+    //    Закрепляет новость.
     public void pin() {
         this.isPinned = true;
     }
 
+    //    Убирает новость из закреплённых.
     public void unpin() {
         this.isPinned = false;
     }
@@ -81,4 +91,3 @@ public class News {
                 '}';
     }
 }
-

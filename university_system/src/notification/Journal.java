@@ -6,11 +6,16 @@ import java.util.List;
 import core.User;
 import model.research.ResearchPaper;
 
+
+//  Класс Journal описывает научный журнал.
+//  Журнал хранит статьи и список подписчиков, которых можно уведомлять о новых публикациях.
+
 public class Journal implements Subject {
     private String name;
     private List<ResearchPaper> papers;
     private List<User> subscribers;
 
+    //    Создаёт журнал по его названию.
     public Journal(String name) {
         this.name = name;
         this.papers = new ArrayList<>();
@@ -29,6 +34,7 @@ public class Journal implements Subject {
         return subscribers;
     }
 
+    //    Подписывает пользователя на уведомления журнала.
     @Override
     public void subscribe(User user) {
         if (user != null && !subscribers.contains(user)) {
@@ -36,12 +42,13 @@ public class Journal implements Subject {
         }
     }
 
+    //    Убирает пользователя из списка подписчиков.
     @Override
     public void unsubscribe(User user) {
         subscribers.remove(user);
     }
 
-    // При публикации статьи журнал сохраняет её и уведомляет подписчиков.
+    //    Публикует новую статью и запускает уведомление подписчиков.
     public void publishPaper(ResearchPaper paper) {
         if (paper != null) {
             papers.add(paper);
@@ -49,6 +56,7 @@ public class Journal implements Subject {
         }
     }
 
+    //    Уведомляет всех подписчиков о новой публикации.
     @Override
     public void notifySubscribers() {
         for (User subscriber : subscribers) {
