@@ -75,5 +75,10 @@ public class Mark {
 	           "\nTotal: " + getTotal() +
 	           "\nGrade: " + getLetterGrade() + "\n";
 	}
+
+	public double getAttestation1() {return attestation1;}
+	public double getAttestation2() {return attestation2;}
+	public double getFinalExam() {return finalExam;}
+
 }
 

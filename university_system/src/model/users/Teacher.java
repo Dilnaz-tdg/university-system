@@ -33,17 +33,19 @@ public class Teacher extends Employee {
 	
 	public List<Student> viewStudents(Course course){
 		if(!courses.contains(course)) {
-			System.out.println("You are not assigned to this course");
-			return new ArrayList<>();
+			throw new IllegalStateException("Teacher is not assigned to this course");
 		}
 		return course.getStudents() ;
 	}
 	
 	public void putMarks(Student student, Course course, Mark mark) {
+		if (!courses.contains(course)) {
+			 throw new IllegalStateException("Teacher is not assigned to this course");
+	    }
+		
 	    for (Enrollment e : course.getEnrollments()) {
 	        if (e.getStudent().equals(student)) {
-	            mark = new Mark(e);
-	            
+
 	            DataStorage.getInstance().addMark(mark);
 	            return;
 	        }
@@ -51,7 +53,62 @@ public class Teacher extends Employee {
 	}
 	
 	public Report generateReport(Course course) {
-		return null;
+	    if (!courses.contains(course)) {
+	    	throw new IllegalStateException("Teacher is not assigned to this course");
+	    }
+
+	    Map<String, Double> data = new HashMap<>();
+
+	    int studentCount = course.getStudents().size();
+	    int enrollmentCount = course.getEnrollments().size();
+
+	    List<Mark> marks = DataStorage.getInstance().getMarks();
+
+	    double total = 0;
+	    int count = 0;
+	    double max = Double.MIN_VALUE;
+	    double min = Double.MAX_VALUE;
+	    int passed = 0;
+
+	    for (Mark m : marks) {
+	        if (m.getEnrollment().getCourse().equals(course)) {
+
+	            double value = m.getTotal();
+
+	            total += value;
+	            count++;
+
+	            if (value > max) max = value;
+	            if (value < min) min = value;
+
+	            if (m.isPassed()) {
+	                passed++;
+	            }
+	        }
+	    }
+	    double average = (count == 0) ? 0 : total / count;
+	    double passRate = (count == 0) ? 0 : (passed * 100.0 / count);
+	    if (count == 0) {
+	        max = 0;
+	        min = 0;
+	    }
+	    data.put("Students", (double) studentCount);
+	    data.put("Enrollments", (double) enrollmentCount);
+	    data.put("Average Total", average);
+	    data.put("Max Total", max);
+	    data.put("Min Total", min);
+	    data.put("Pass Rate (%)", passRate);
+
+	    return new Report("Course Report: " + course.getName(), data);
+	}
+	
+	public void receveRating(int rating) {
+		this.rating = (this.rating + rating) / 2.0;
+	}
+
+	@Override
+	public String getRole() {
+		return "Teacher " + positionTitle.toString(); 
 	}
 	
 	public boolean equals(Object obj) {
@@ -69,14 +126,6 @@ public class Teacher extends Employee {
 		return "Teacher: " + getFirstName() + " " + getLastName();
 	}
 
-	public void recieveRating(int rating) {
-		this.rating = (this.rating + rating) / 2.0;
-	}
-
-	@Override
-	public String getRole() {
-		return "Teacher " + positionTitle.toString(); 
-	}
-
 	
 }
+
