@@ -1,10 +1,11 @@
 package model.communication;
 
-import java.time.LocalDate;
-
 import core.Employee;
 
-public class Request {
+import java.time.LocalDate;
+import java.util.UUID;
+
+public class Request{
     private String id;
     private Employee author;
     private String description;
@@ -19,6 +20,10 @@ public class Request {
         this.urgencyLevel = urgencyLevel;
         this.status = RequestStatus.NEW;
         this.createdAt = LocalDate.now();
+    }
+    // Этот конструктор оставляем для совместимости со старым вызовом из Employee.
+    public Request(Employee author, String description, UrgencyLevel urgencyLevel) {
+        this(UUID.randomUUID().toString(), author, description, urgencyLevel);
     }
 
     public String getId() {
@@ -44,12 +49,10 @@ public class Request {
     public UrgencyLevel getUrgencyLevel() {
         return urgencyLevel;
     }
-
-    // Метод нужен для изменения этапа обработки заявки.
-    public void updateStatus(RequestStatus status) {
+    // Меняем этап обработки заявки.
+    public void updateStatus(RequestStatus status){
         this.status = status;
     }
-
     @Override
     public String toString() {
         return "Request{" +
