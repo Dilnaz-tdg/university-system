@@ -23,6 +23,7 @@ public class Lesson {
 	public Course getCourse() { return course; }
 	public LocalDateTime getSchedule() { return schedule; }
 	public LessonType getLessonType() { return lessonType; }
+	public String getRoom() {return room;}
 	
 	@Override 
 	public String toString() {

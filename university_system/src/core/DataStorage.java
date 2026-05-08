@@ -2,6 +2,7 @@ package core;
 
 import model.academic.Course;
 import model.academic.Enrollment;
+import model.academic.Lesson;
 import model.academic.Mark;
 import model.communication.News;
 import model.communication.Request;
@@ -25,7 +26,8 @@ public class DataStorage implements Serializable {
     private List<Request> requests;
     private List<Enrollment> enrollments;
     private List<Mark> marks;
-
+    private List<Lesson> lessons;
+    
     private DataStorage() {
         users = new ArrayList<>();
         courses = new ArrayList<>();
@@ -34,6 +36,7 @@ public class DataStorage implements Serializable {
         requests = new ArrayList<>();
         enrollments = new ArrayList<>();
         marks = new ArrayList<>();
+        lessons = new ArrayList<>();
     }
 
     public static DataStorage getInstance() { //единственный объект DataStorage
@@ -71,6 +74,9 @@ public class DataStorage implements Serializable {
 
     public List<Mark> getMarks()                { return marks; }
     public void addMark(Mark mark)              { marks.add(mark); }
+    
+    public List<Lesson> getLessons()             { return lessons; }
+    public void addLesson(Lesson lesson)         { lessons.add(lesson); }
 
     @Override
     public String toString() {
