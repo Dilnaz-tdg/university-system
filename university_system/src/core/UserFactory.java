@@ -14,6 +14,10 @@ public final class UserFactory {
         if (type == null) {
             throw new IllegalArgumentException("User type cannot be null.");
         }
+        
+        if (data == null) {
+            throw new IllegalArgumentException("User data cannot be null.");
+        }
 
         switch (type.toLowerCase()) {
             case "student":

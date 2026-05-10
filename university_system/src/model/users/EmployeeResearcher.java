@@ -7,6 +7,9 @@ import java.util.List;
 
 import core.Employee;
 import model.research.Researcher;
+import model.research.ResearchPaper;
+import model.research.ResearchProject;
+
 public class EmployeeResearcher extends Employee implements Researcher {
 
     private List<ResearchPaper> papers = new ArrayList<>();

@@ -84,7 +84,7 @@ public class Manager extends Employee {
 	    return report;
 	}
 	
-	public void manageViews(News news) {
+	public void manageNews(News news) {
 	    news.pin();
 	}
 	

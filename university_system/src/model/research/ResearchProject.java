@@ -19,29 +19,25 @@ public class ResearchProject {
 
     public List<ResearchPaper> getPapers(){ return papers; }
 
-    public List<Researcher> getParticipant(){ return participants; }
+    public List<Researcher> getParticipants(){ return participants; }
 
-    public void addParticipant(Researcher researcher){
-        if(researcher == null){
-            throw new IllegalArgumentException("Participant must be a researcher");
+    public void addParticipant(Researcher researcher) throws NotResearcherException {
+        if (researcher == null) {
+            throw new NotResearcherException("Participant must be a researcher.");
         }
 
-        if(!participants.contains(researcher)){
+        if (!participants.contains(researcher)) {
             participants.add(researcher);
             researcher.addProject(this);
         }
     }
 
     public void addParticipant(Object user) throws NotResearcherException {
-
         if (!(user instanceof Researcher)) {
-    
-            throw new NotResearcherException("Only researchers can join research project");
-    
+            throw new NotResearcherException("Only researchers can join research project.");
         }
-    
+
         addParticipant((Researcher) user);
-    
     }
 
 

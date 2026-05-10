@@ -6,6 +6,9 @@ import java.util.Comparator;
 import java.util.List;
 
 import model.research.Researcher;
+import model.research.ResearchPaper;
+import model.research.ResearchProject;
+
 
 public class ResearchTeacher extends Teacher implements Researcher {
 

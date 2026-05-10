@@ -1,5 +1,8 @@
 package model.users;
 
+import model.research.Researcher;
+import model.research.ResearchPaper;
+import model.research.ResearchProject;
 
 import java.util.ArrayList;
 import java.util.Comparator;

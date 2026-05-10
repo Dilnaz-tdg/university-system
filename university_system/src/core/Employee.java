@@ -31,14 +31,16 @@ public abstract class Employee extends User {
     }
 
     public Request sendRequest(String description) {
-        Request request = new Request(this, description, UrgencyLevel.MEDIUM); //по умолчанию заявка medium
+        Request request = new Request(this, description, UrgencyLevel.MEDIUM);
+        DataStorage.getInstance().addRequest(request);
         System.out.println("Request sent: " + description);
         return request;
     }
 
     public Request sendComplaint(String text) {
-        Request complaint = new Request(this, text, UrgencyLevel.HIGH);// как и Request только HIGH
+        Request complaint = new Request(this, text, UrgencyLevel.HIGH);
         complaint.updateStatus(RequestStatus.NEW);
+        DataStorage.getInstance().addRequest(complaint);
         System.out.println("Complaint sent: " + text);
         return complaint;
     }

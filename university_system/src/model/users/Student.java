@@ -10,6 +10,7 @@ import model.academic.Enrollment;
 import model.academic.MaxCreditsException;
 import model.academic.Transcript;
 import model.research.Researcher;
+import model.research.LowHIndexException;
 
 public class Student extends User{
 	private String major;
@@ -71,8 +72,17 @@ public class Student extends User{
 	    return result;
 	}
 	
-	public void setResearchSupervisor(Researcher supervisor) {
-		this.researchSupervisor = supervisor;
+	public void setResearchSupervisor(Researcher supervisor) throws LowHIndexException {
+	    if (supervisor == null) {
+	        throw new LowHIndexException("Supervisor cannot be null.");
+	    }
+
+	    if (yearOfStudy == 4 && supervisor.calculateHIndex() < 3) {
+	        throw new LowHIndexException("Supervisor h-index must be at least 3.");
+	    }
+
+	    this.researchSupervisor = supervisor;
+	    System.out.println("Research supervisor assigned successfully.");
 	}
 	
 	public void addFail(Course course) {
