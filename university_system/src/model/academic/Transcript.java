@@ -1,11 +1,12 @@
 package model.academic;
 
+import java.io.Serializable;
 import java.util.*;
 
 import core.DataStorage;
 import model.users.Student;
 
-public class Transcript {
+public class Transcript implements Serializable{
 	private Student student;
 	private List<Mark> marks = new ArrayList<>();
 	private double gpa;

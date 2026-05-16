@@ -2,10 +2,11 @@ package model.communication;
 
 import core.Employee;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Request{
+public class Request implements Serializable{
     private String id;
     private Employee author;
     private String description;

@@ -1,11 +1,12 @@
 package model.academic;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 import model.users.Teacher;
 
-public class Lesson {
+public class Lesson implements Serializable {
 	private Teacher teacher;
 	private Course course;
 	private String room;

@@ -1,12 +1,13 @@
 package model.academic;
 
+import java.io.Serializable;
 import java.util.*;
 
 import core.DataStorage;
 import model.users.Student;
 import model.users.Teacher;
 
-public class Course {
+public class Course implements Serializable{
 	private String courseId;
 	private String name;
 	private int credits;

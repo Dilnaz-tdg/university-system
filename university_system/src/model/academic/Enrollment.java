@@ -1,11 +1,12 @@
 package model.academic;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import model.users.Manager;
 import model.users.Student;
 
-public class Enrollment {
+public class Enrollment implements Serializable{
 	private Student student;
 	private Course course;
 	private EnrollmentStatus status;

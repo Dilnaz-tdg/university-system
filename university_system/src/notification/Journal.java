@@ -1,5 +1,6 @@
 package notification;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import model.research.ResearchPaper;
 //  Класс Journal описывает научный журнал.
 //  Журнал хранит статьи и список подписчиков, которых можно уведомлять о новых публикациях.
 
-public class Journal implements Subject {
+public class Journal implements Subject, Serializable{
     private String name;
     private List<ResearchPaper> papers;
     private List<User> subscribers;

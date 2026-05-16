@@ -1,10 +1,11 @@
 package model.research;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
-public class ResearchPaper implements Comparable<ResearchPaper> {
+public class ResearchPaper implements Comparable<ResearchPaper>, Serializable {
 
     private String title;
     private List<String> authors;

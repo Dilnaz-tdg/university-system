@@ -1,8 +1,9 @@
 package model.academic;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Mark {
+public class Mark implements Serializable {
 	private Enrollment enrollment;
 	private double attestation1;
 	private double attestation2;
