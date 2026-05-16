@@ -8,6 +8,8 @@ import core.Employee;
 import core.User;
 import model.academic.Course;
 import model.academic.Enrollment;
+import model.academic.EnrollmentStatus;
+import model.communication.Request;
 import model.academic.Lesson;
 import model.academic.Report;
 import model.academic.ScheduleManager;
@@ -111,13 +113,48 @@ public class Manager extends Employee {
 	    }
 	}
 	
-	  public void viewRequests() {
-		  	List<Enrollment> enrollments = DataStorage.getInstance().getEnrollments();
+	public void viewRequests() {
+	    List<Request> requests = DataStorage.getInstance().getRequests();
 
-		    for (Enrollment e : enrollments) {
-		        System.out.println(e);
-		    }
+	    if (requests.isEmpty()) {
+	        System.out.println("No employee requests found.");
+	        return;
 	    }
+
+	    for (Request request : requests) {
+	        System.out.println(request);
+	    }
+	}
+	
+	public void viewEnrollments() {
+	    List<Enrollment> enrollments = DataStorage.getInstance().getEnrollments();
+
+	    if (enrollments.isEmpty()) {
+	        System.out.println("No student registration requests found.");
+	        return;
+	    }
+
+	    for (Enrollment enrollment : enrollments) {
+	        System.out.println(enrollment);
+	    }
+	}
+	
+	public void viewTeachersSorted() {
+	    List<Teacher> teachers = new ArrayList<>();
+
+	    for (User u : DataStorage.getInstance().getUsers()) {
+	        if (u instanceof Teacher) {
+	            teachers.add((Teacher) u);
+	        }
+	    }
+
+	    teachers.sort(Comparator.comparing(Teacher::getFirstName)
+	            .thenComparing(Teacher::getLastName));
+
+	    for (Teacher teacher : teachers) {
+	        System.out.println(teacher);
+	    }
+	}
 	
 	@Override
 	public String toString() {

@@ -43,6 +43,20 @@ public class Student extends User{
 	    return e;
 	}
 	
+	public void viewTeachersOfCourse(Course course) {
+	    System.out.println("Teachers for course: " + course.getName());
+
+	    System.out.println("Lecture teachers:");
+	    for (Teacher teacher : course.getLectureTeachers()) {
+	        System.out.println(teacher);
+	    }
+
+	    System.out.println("Practice teachers:");
+	    for (Teacher teacher : course.getPracticeTeachers()) {
+	        System.out.println(teacher);
+	    }
+	}
+	
 	public void viewMarks() {
 		transcript.generate();
 		transcript.print();
