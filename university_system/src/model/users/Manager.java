@@ -85,7 +85,11 @@ public class Manager extends Employee {
 	}
 	
 	public void manageNews(News news) {
-	    news.pin();
+		 if (news.isPinned()) {
+		        news.unpin();
+		    } else {
+		        news.pin();
+		    }
 	}
 	
 	public void viewStudentsSorted() {
