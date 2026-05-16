@@ -57,7 +57,7 @@ public class Student extends User{
 	
 	public void rateTeacher(Teacher teacher, int rating) {
 		if (teacher != null) {
-            teacher.receveRating(rating);
+            teacher.recieveRating(rating);
         }
 	}
 	

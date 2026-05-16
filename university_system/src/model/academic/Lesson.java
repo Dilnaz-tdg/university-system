@@ -1,6 +1,7 @@
 package model.academic;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import model.users.Teacher;
 
@@ -24,6 +25,23 @@ public class Lesson {
 	public LocalDateTime getSchedule() { return schedule; }
 	public LessonType getLessonType() { return lessonType; }
 	public String getRoom() {return room;}
+	
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj) return true;
+	    if (!(obj instanceof Lesson)) return false;
+
+	    Lesson other = (Lesson) obj;
+
+	    return Objects.equals(course, other.course)
+	            && Objects.equals(schedule, other.schedule)
+	            && Objects.equals(room, other.room);
+	}
+
+	@Override
+	public int hashCode() {
+	    return Objects.hash(course, schedule, room);
+	    }
 	
 	@Override 
 	public String toString() {

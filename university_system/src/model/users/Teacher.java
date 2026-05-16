@@ -102,7 +102,7 @@ public class Teacher extends Employee {
 	    return new Report("Course Report: " + course.getName(), data);
 	}
 	
-	public void receveRating(int rating) {
+	public void recieveRating(int rating) {
 		this.rating = (this.rating + rating) / 2.0;
 	}
 
