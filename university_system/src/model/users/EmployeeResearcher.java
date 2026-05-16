@@ -11,7 +11,8 @@ import model.research.ResearchPaper;
 import model.research.ResearchProject;
 
 public class EmployeeResearcher extends Employee implements Researcher {
-
+	
+	private static final long serialVersionUID = 1L;
     private List<ResearchPaper> papers = new ArrayList<>();
     private List<ResearchProject> projects = new ArrayList<>();
     private int hIndex;
@@ -81,6 +82,11 @@ public class EmployeeResearcher extends Employee implements Researcher {
     @Override
 
     public String getRole() { return "Employee Researcher"; }
-
+    
+    
+    @Override
+    public String toString() {
+        return getRole() + " | " + getFullName() + " | h-index: " + getHIndex();
+    }
 
 }

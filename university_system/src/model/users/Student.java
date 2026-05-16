@@ -44,6 +44,7 @@ public class Student extends User{
 	}
 	
 	public void viewMarks() {
+		transcript.generate();
 		transcript.print();
 	}
 	

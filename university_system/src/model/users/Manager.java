@@ -46,6 +46,9 @@ public class Manager extends Employee {
 	    course.addPracticeTeacher(teacher);
 	    teacher.manageCourse(course);
 	}
+	public void assignCourseToTeacher(Course course, Teacher teacher) {
+	    assignLectureTeacher(course, teacher);
+	}
 	
 	public Report createReport() {
 		DataStorage ds = DataStorage.getInstance();

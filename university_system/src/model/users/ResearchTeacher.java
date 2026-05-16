@@ -86,7 +86,7 @@ public class ResearchTeacher extends Teacher implements Researcher {
     }
 
     public int getHIndex() {
-        return hIndex;
+        return calculateHIndex();
     }
 
     @Override

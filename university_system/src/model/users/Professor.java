@@ -79,8 +79,11 @@ public class Professor extends Teacher implements Researcher{
     }
 
     public int getHIndex() { return calculateHIndex(); }
-
-
+    
+    @Override
+    public String toString() {
+        return "Professor | " + getFullName() + " | h-index: " + getHIndex();
+    }
 
 
 

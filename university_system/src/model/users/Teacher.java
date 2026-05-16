@@ -38,10 +38,15 @@ public class Teacher extends Employee {
 		return course.getStudents() ;
 	}
 	
-	public void putMarks(Student student, Course course, Mark mark) {
+	public void putMark(Student student, Course course, Mark mark) {
 		if (!courses.contains(course)) {
 			 throw new IllegalStateException("Teacher is not assigned to this course");
 	    }
+		
+		if (!mark.getEnrollment().getStudent().equals(student) ||
+			    !mark.getEnrollment().getCourse().equals(course)) {
+			    throw new IllegalArgumentException("Mark does not match student and course.");
+			}
 		
 	    for (Enrollment e : course.getEnrollments()) {
 	        if (e.getStudent().equals(student)) {

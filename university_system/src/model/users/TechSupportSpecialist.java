@@ -9,6 +9,7 @@ import model.communication.Request;
 import model.communication.RequestStatus;
 
 public class TechSupportSpecialist extends Employee{
+	private static final long serialVersionUID = 1L;
     private List<Request> assignedRequests;
     public TechSupportSpecialist(String firstName, String lastName, String login, String password,
                                  double salary, String department, String position, LocalDate hiringDate) {

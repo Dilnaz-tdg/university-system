@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import model.research.Researcher;
 public class ResearchStudent extends Student implements Researcher {
-
+	
+	private static final long serialVersionUID = 1L;
     private List<ResearchPaper> papers = new ArrayList<>();
     private List<ResearchProject> projects = new ArrayList<>();
     private int hIndex;
