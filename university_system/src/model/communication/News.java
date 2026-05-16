@@ -3,13 +3,14 @@ package model.communication;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.io.Serializable;
 import model.users.Manager;
 
 
 //  Класс News описывает новость внутри университетской системы.
 //  Новость хранит заголовок, текст, тему, автора, дату публикации и комментарии.
-public class News {
+public class News implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String title;
     private String content;
     private NewsTopic topic;

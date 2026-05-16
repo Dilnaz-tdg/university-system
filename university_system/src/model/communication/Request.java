@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public class Request implements Serializable{
+	private static final long serialVersionUID = 1L;
     private String id;
     private Employee author;
     private String description;
