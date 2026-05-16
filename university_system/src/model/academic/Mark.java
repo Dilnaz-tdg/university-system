@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Mark implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Enrollment enrollment;
 	private double attestation1;
 	private double attestation2;
@@ -65,7 +66,7 @@ public class Mark implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		 return Objects.hash(enrollment, attestation1, attestation2, finalExam);
+	    return Objects.hash(enrollment);
 	}
 	
 	public String toString() {

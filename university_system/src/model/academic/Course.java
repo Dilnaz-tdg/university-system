@@ -34,6 +34,13 @@ public class Course implements Serializable{
 	public int getCredits() {
 		return credits;
 	}
+	public List<Teacher> getLectureTeachers() {
+	    return lectureTeachers;
+	}
+
+	public List<Teacher> getPracticeTeachers() {
+	    return practiceTeachers;
+	}
 	
 	public List<Enrollment> getEnrollments() {
 	    List<Enrollment> result = new ArrayList<>();

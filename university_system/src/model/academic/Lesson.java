@@ -7,6 +7,7 @@ import java.util.Objects;
 import model.users.Teacher;
 
 public class Lesson implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Teacher teacher;
 	private Course course;
 	private String room;

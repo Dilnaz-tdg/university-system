@@ -16,6 +16,13 @@ public class Admin extends Employee {
     }
 
     public void addUser(User user) {
+        for (User existingUser : DataStorage.getInstance().getUsers()) {
+            if (existingUser.getLogin().equals(user.getLogin())) {
+                System.out.println("User with this login already exists.");
+                return;
+            }
+        }
+
         DataStorage.getInstance().getUsers().add(user);
         log("ADD USER: " + user.getLogin());
         System.out.println("User added: " + user.getFullName());

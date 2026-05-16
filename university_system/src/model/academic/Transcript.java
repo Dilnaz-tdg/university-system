@@ -16,6 +16,10 @@ public class Transcript implements Serializable{
 	    this.marks = new ArrayList<>();
 	}
 	
+	public double getGpa() {
+	    return gpa;
+	}
+	
 	public void generate() {
 	    marks.clear();
 
@@ -32,6 +36,8 @@ public class Transcript implements Serializable{
 
 	    if (count > 0) {
 	        gpa = total / count;
+	    } else {
+	        gpa = 0;
 	    }
 	}
 	

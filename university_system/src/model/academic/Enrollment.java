@@ -27,6 +27,14 @@ public class Enrollment implements Serializable{
         return course;
     }
 	
+	public EnrollmentStatus getStatus() {
+	    return status;
+	}
+
+	public Manager getApprovedBy() {
+	    return approvedBy;
+	}
+	
 	public void approve(Manager manager) {
 		status = EnrollmentStatus.APPROVED;
 		approvedBy = manager;
