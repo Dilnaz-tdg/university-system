@@ -107,6 +107,25 @@ public class Teacher extends Employee {
 	    return new Report("Course Report: " + course.getName(), data);
 	}
 	
+	public String writeRecommendationLetter(Student student) {
+	    StringBuilder sb = new StringBuilder();
+
+	    sb.append("Recommendation Letter\n");
+	    sb.append("----------------------------\n");
+	    sb.append("To whom it may concern,\n\n");
+	    sb.append("I highly recommend ")
+	      .append(student.getFullName())
+	      .append(" for academic and professional opportunities.\n");
+
+	    sb.append(student.getFullName())
+	      .append(" has demonstrated strong performance in my course and excellent analytical skills.\n");
+
+	    sb.append("Sincerely,\n");
+	    sb.append(getFullName());
+
+	    return sb.toString();
+	}
+	
 	public void recieveRating(int rating) {
 		this.rating = (this.rating + rating) / 2.0;
 	}

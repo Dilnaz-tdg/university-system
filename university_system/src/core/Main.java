@@ -177,7 +177,7 @@ public class Main {
         System.out.println("\nstudent1 views teacher of OOP:");
         student1.viewTeachersOfCourse(oop);
 
-        System.out.println("student1 approved courses: " + student1.viewCourses());
+        System.out.println("student1 approved courses: " + student1.viewApprovedCourses());
 
         System.out.println("\n" + LINE);
         System.out.println(" [5] MARKS & TRANSCRIPT");
@@ -216,7 +216,7 @@ public class Main {
         Transcript transcript = student1.getTranscript();
         transcript.generate();
         transcript.print();
-
+        
         System.out.println("\nTesting fail limit (max 3 fails per course):");
         try {
             student2.addFail(oop);
@@ -231,6 +231,9 @@ public class Main {
         Report teacherReport = lectureTeacher.generateReport(oop);
         teacherReport.generate();
         teacherReport.print();
+        
+        System.out.println("\nRecommendation Letter:");
+        System.out.println(lectureTeacher.writeRecommendationLetter(student1));
 
         System.out.println("\nStudent rates teacher:");
         student1.rateTeacher(lectureTeacher, 5);
@@ -498,6 +501,18 @@ public class Main {
         System.out.println(LINE);
 
         admin.viewLogs();
+        
+        System.out.println("\nAdvanced search by regular expressions:");
+
+        System.out.println("Students whose name starts with J:");
+        for (Student s : orManager.searchStudentsByRegex("J.*")) {
+            System.out.println(s);
+        }
+
+        System.out.println("\nCourses containing word Computer:");
+        for (Course c : orManager.searchCoursesByRegex(".*Computer.*")) {
+            System.out.println(c);
+        }
 
         System.out.println("\n" + LINE);
         System.out.println(" [16] DESIGN PATTERNS USED");

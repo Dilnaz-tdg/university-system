@@ -14,6 +14,8 @@ import model.academic.Lesson;
 import model.academic.Report;
 import model.academic.ScheduleManager;
 import model.communication.News;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Manager extends Employee {
 	private ManagerType managerType;
@@ -154,6 +156,34 @@ public class Manager extends Employee {
 	    for (Teacher teacher : teachers) {
 	        System.out.println(teacher);
 	    }
+	}
+	
+	public List<Student> searchStudentsByRegex(String regex) {
+	    List<Student> result = new ArrayList<>();
+
+	    for (User user : DataStorage.getInstance().getUsers()) {
+	        if (user instanceof Student) {
+	            Student student = (Student) user;
+
+	            if (student.getFullName().matches(regex)) {
+	                result.add(student);
+	            }
+	        }
+	    }
+
+	    return result;
+	}
+
+	public List<Course> searchCoursesByRegex(String regex) {
+	    List<Course> result = new ArrayList<>();
+
+	    for (Course course : DataStorage.getInstance().getCourses()) {
+	        if (course.getName().matches(regex) || course.getCourseId().matches(regex)) {
+	            result.add(course);
+	        }
+	    }
+
+	    return result;
 	}
 	
 	@Override

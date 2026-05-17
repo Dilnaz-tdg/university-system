@@ -32,7 +32,6 @@ public class Student extends User {
     }
 
     public Enrollment registerCourse(Course course) {
-        // FIX: check BEFORE adding credits — > 21, not >= 21
         if (totalCredit + course.getCredits() > 21) {
             throw new MaxCreditsException("Max 21 credits exceeded. Current: "
                     + totalCredit + ", course: " + course.getCredits());
@@ -69,6 +68,10 @@ public class Student extends User {
     }
 
     public List<Course> viewCourses() {
+        return new ArrayList<>(DataStorage.getInstance().getCourses());
+    }
+    
+    public List<Course> viewApprovedCourses() {
         List<Course> courses = new ArrayList<>();
         for (Enrollment e : getEnrollments()) {
             if (e.getStatus() == EnrollmentStatus.APPROVED) {
@@ -77,7 +80,6 @@ public class Student extends User {
         }
         return courses;
     }
-
     public Transcript getTranscript() {
         return transcript;
     }
