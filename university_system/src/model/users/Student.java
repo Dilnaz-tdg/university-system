@@ -32,7 +32,6 @@ public class Student extends User {
     }
 
     public Enrollment registerCourse(Course course) {
-        // FIX: check BEFORE adding credits — > 21, not >= 21
         if (totalCredit + course.getCredits() > 21) {
             throw new MaxCreditsException("Max 21 credits exceeded. Current: "
                     + totalCredit + ", course: " + course.getCredits());
