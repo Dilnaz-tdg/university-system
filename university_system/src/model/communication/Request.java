@@ -59,7 +59,7 @@ public class Request implements Serializable{
     public String toString() {
         return "Request{" +
                 "id='" + id + '\'' +
-                ", author=" + author +
+                ", author=" + (author != null ? author.getFullName() : "null") +
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 ", createdAt=" + createdAt +

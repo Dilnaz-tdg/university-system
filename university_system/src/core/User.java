@@ -1,10 +1,11 @@
 package core;
 
 import java.io.Serializable;
+import notification.*;
 import java.util.Objects;
 import java.util.UUID; //для автоматической генерации уникального id
 
-public abstract class User implements Serializable {
+public abstract class User implements Observer, Serializable {
 
     private static final long serialVersionUID = 1L;// для проверки версии класса когда сохранение
 
@@ -74,6 +75,11 @@ public abstract class User implements Serializable {
 
         User user = (User) obj;
         return Objects.equals(id, user.id);
+    }
+    
+    @Override
+    public void update(String message) {
+        System.out.println("Notification for " + this + ": " + message);
     }
 
     @Override

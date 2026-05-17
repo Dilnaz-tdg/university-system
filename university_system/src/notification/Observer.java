@@ -1,6 +1,7 @@
 package notification;
 
-public interface Observer {
-    // Получает текстовое уведомление от наблюдаемого объекта.
+import java.io.Serializable;
+
+public interface Observer extends Serializable {
     void update(String message);
 }

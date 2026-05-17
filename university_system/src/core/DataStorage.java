@@ -88,6 +88,17 @@ public class DataStorage implements Serializable {
         }
     }
 
+    public void clear() {
+        users.clear();
+        courses.clear();
+        news.clear();
+        journals.clear();
+        requests.clear();
+        enrollments.clear();
+        marks.clear();
+        lessons.clear();
+    }
+
     public List<Request> getRequests() { return requests; }
     public void addRequest(Request request) { requests.add(request); }
 

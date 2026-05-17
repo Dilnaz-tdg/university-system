@@ -4,20 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import core.User;
 import model.research.ResearchPaper;
 
+public class Journal implements Subject, Serializable {
+    private static final long serialVersionUID = 1L;
 
-//  Класс Journal описывает научный журнал.
-//  Журнал хранит статьи и список подписчиков, которых можно уведомлять о новых публикациях.
-
-public class Journal implements Subject, Serializable{
-	private static final long serialVersionUID = 1L;
     private String name;
     private List<ResearchPaper> papers;
-    private List<User> subscribers;
+    private List<Observer> subscribers;
 
-    //    Создаёт журнал по его названию.
     public Journal(String name) {
         this.name = name;
         this.papers = new ArrayList<>();
@@ -32,25 +27,22 @@ public class Journal implements Subject, Serializable{
         return papers;
     }
 
-    public List<User> getSubscribers() {
+    public List<Observer> getSubscribers() {
         return subscribers;
     }
 
-    //    Подписывает пользователя на уведомления журнала.
     @Override
-    public void subscribe(User user) {
-        if (user != null && !subscribers.contains(user)) {
-            subscribers.add(user);
+    public void subscribe(Observer observer) {
+        if (observer != null && !subscribers.contains(observer)) {
+            subscribers.add(observer);
         }
     }
 
-    //    Убирает пользователя из списка подписчиков.
     @Override
-    public void unsubscribe(User user) {
-        subscribers.remove(user);
+    public void unsubscribe(Observer observer) {
+        subscribers.remove(observer);
     }
 
-    //    Публикует новую статью и запускает уведомление подписчиков.
     public void publishPaper(ResearchPaper paper) {
         if (paper != null) {
             papers.add(paper);
@@ -58,11 +50,10 @@ public class Journal implements Subject, Serializable{
         }
     }
 
-    //    Уведомляет всех подписчиков о новой публикации.
     @Override
     public void notifySubscribers() {
-        for (User subscriber : subscribers) {
-            System.out.println("Notification for " + subscriber + ": new paper was published in journal " + name);
+        for (Observer subscriber : subscribers) {
+            subscriber.update("New paper was published in journal " + name);
         }
     }
 

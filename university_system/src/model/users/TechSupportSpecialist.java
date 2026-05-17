@@ -49,8 +49,13 @@ public class TechSupportSpecialist extends Employee{
 
     @Override
     public String toString() {
+        List<String> requestIds = new ArrayList<>();
+        for (Request r : assignedRequests) {
+            requestIds.add(r.getId());
+        }
         return "TechSupportSpecialist{" +
-                "assignedRequests=" + assignedRequests +
+                "name=" + getFullName() +
+                ", assignedRequests=" + requestIds +
                 '}';
     }
 }

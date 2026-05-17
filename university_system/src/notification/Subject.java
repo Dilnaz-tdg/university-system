@@ -1,9 +1,7 @@
 package notification;
 
-import core.User;
-
 public interface Subject {
-    void subscribe(User user);
-    void unsubscribe(User user);
+    void subscribe(Observer observer);
+    void unsubscribe(Observer observer);
     void notifySubscribers();
 }
