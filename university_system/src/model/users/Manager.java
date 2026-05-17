@@ -188,8 +188,8 @@ public class Manager extends Employee {
 	
 	@Override
 	public String toString() {
-		return "Manager: " + managerType;
-		
+	    return "Manager: " + getFirstName() + " " + getLastName() + 
+	           " Type: " + managerType;
 	}
 
 	@Override
